@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Therapeutic Learning Environments — Nova Primary Playbook 2026</title>
 <link rel="stylesheet" href="style.css">
+<style>
+#lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9000;align-items:center;justify-content:center;padding:1rem}
+#lb-overlay.open{display:flex}
+#lb-overlay img{max-width:95vw;max-height:92vh;border-radius:10px;object-fit:contain;cursor:default}
+#lb-close{position:absolute;top:.75rem;right:1.25rem;background:none;border:none;color:#fff;font-size:2.5rem;line-height:1;cursor:pointer;padding:0;font-family:sans-serif}
+.thumb-wrap{cursor:zoom-in;text-align:center}
+.thumb-wrap img{max-width:300px;width:100%;border-radius:10px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.thumb-wrap:hover img{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.thumb-hint{font-family:var(--display);font-size:.78rem;color:#888;margin-top:.4rem;text-align:center}
+</style>
 </head>
 <body>
 <header class="nav">
@@ -99,6 +109,15 @@
     <div class="callout reveal" style="margin-top:1.5rem">
       <p>Communal areas need clear ownership, routines for upkeep and high expectations for presentation, maintained to the same standard as classrooms.</p>
     </div>
+    <div class="reveal" style="margin-top:1.5rem;text-align:center">
+      <figure style="margin:0;display:inline-block">
+        <div class="thumb-wrap" onclick="lbOpen('76bc9b98-e12f-4998-abe5-964a2e076d4e.jpg','Breakout corner with grey corduroy sofa')">
+          <img src="76bc9b98-e12f-4998-abe5-964a2e076d4e.jpg" alt="Breakout corner with grey corduroy sofa, small coffee table and calming accessories" style="max-width:380px">
+        </div>
+        <p class="thumb-hint">A breakout corner at a Nova primary: grey corduroy sofa, small coffee table and calming accessories</p>
+        <p class="thumb-hint">Click to enlarge</p>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -135,6 +154,22 @@
     <div class="callout reveal" style="margin-top:1.5rem">
       <p>Encourage children to maintain their environment through classroom roles, care of furniture and tidying routines. Some schools may explore removing shoes or using slippers where it supports comfort and cleanliness.</p>
     </div>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem" class="reveal">
+      <figure style="margin:0;flex:0 1 360px;text-align:center">
+        <div class="thumb-wrap" onclick="lbOpen('b3749861-e849-4636-ac98-c6d9b536fa25.jpg','Therapeutic classroom with wooden tables, screen, shelving and sofa seating area')">
+          <img src="b3749861-e849-4636-ac98-c6d9b536fa25.jpg" alt="Therapeutic classroom showing wooden tables, screen, shelving and sofa seating area at the back" style="max-width:360px">
+        </div>
+        <p class="thumb-hint">A full therapeutic classroom: multiple table layouts, open shelving, screen and a sofa reading area</p>
+        <p class="thumb-hint">Click to enlarge</p>
+      </figure>
+      <figure style="margin:0;flex:0 1 360px;text-align:center">
+        <div class="thumb-wrap" onclick="lbOpen('dd7187c3-834b-4890-8e67-5dd6d80e8920.jpg','Classroom with round tables, curved sofa seating and floor cushions')">
+          <img src="dd7187c3-834b-4890-8e67-5dd6d80e8920.jpg" alt="Classroom with round tables, curved sofa seating, floor cushions and screen" style="max-width:360px">
+        </div>
+        <p class="thumb-hint">Round tables, a curved sofa and floor cushions offer varied seating within one classroom</p>
+        <p class="thumb-hint">Click to enlarge</p>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -160,6 +195,15 @@
         <h3>Outdoor access and lighting</h3>
         <p>Where possible, access to outdoor space, fresh air, natural environments and play, which matters for regulation and wellbeing. Consider softer lighting, blackout blinds and sensory lighting options.</p>
       </div>
+    </div>
+    <div class="reveal" style="margin-top:1.5rem;text-align:center">
+      <figure style="margin:0;display:inline-block">
+        <div class="thumb-wrap" onclick="lbOpen('20250110_163247.jpg','SEMH space with canvas den, floor cushions and low wooden tables')">
+          <img src="20250110_163247.jpg" alt="SEMH space featuring a canvas den, floor cushions, low wooden tables and flexible seating options" style="max-width:380px">
+        </div>
+        <p class="thumb-hint">A flexible SEMH space: regulation den, floor cushions and low tables supporting different needs and positions</p>
+        <p class="thumb-hint">Click to enlarge</p>
+      </figure>
     </div>
   </div>
 </section>
@@ -197,6 +241,15 @@
     <p class="copy">Nova Education Trust &bull; Primary Playbook 2026 &bull; The Sir Colin Campbell Building, University of Nottingham Innovation Park, Triumph Road, Nottingham NG7 2TU &bull; 0115 807 7777 &bull; contact@novaeducationtrust.net</p>
   </div>
 </footer>
+<div id="lb-overlay" onclick="if(event.target===this)lbClose()">
+  <button id="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
 <script src="app.js"></script>
+<script>
+function lbOpen(src,alt){var o=document.getElementById('lb-overlay');document.getElementById('lb-img').src=src;document.getElementById('lb-img').alt=alt||'';o.classList.add('open');document.body.style.overflow='hidden';}
+function lbClose(){document.getElementById('lb-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lbClose();});
+</script>
 </body>
 </html>

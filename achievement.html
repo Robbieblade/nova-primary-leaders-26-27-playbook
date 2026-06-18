@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Achievement & Assessment — Nova Primary Playbook 2026</title>
 <link rel="stylesheet" href="style.css">
+<style>
+#lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9000;align-items:center;justify-content:center;padding:1rem}
+#lb-overlay.open{display:flex}
+#lb-overlay img{max-width:95vw;max-height:92vh;border-radius:10px;object-fit:contain;cursor:default}
+#lb-close{position:absolute;top:.75rem;right:1.25rem;background:none;border:none;color:#fff;font-size:2.5rem;line-height:1;cursor:pointer;padding:0;font-family:sans-serif}
+.thumb-wrap{cursor:zoom-in;text-align:center}
+.thumb-wrap img{max-width:300px;width:100%;border-radius:10px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.thumb-wrap:hover img{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.thumb-hint{font-family:var(--display);font-size:.78rem;color:#888;margin-top:.4rem;text-align:center}
+</style>
 </head>
 <body>
 <header class="nav">
@@ -52,9 +62,14 @@
       <img src="On%20Track%20PITA%20Assessment.png" alt="On Track PITA Assessment guide" style="max-width:100%;border-radius:12px;box-shadow:var(--shadow);display:block;margin:0 auto">
       <p style="text-align:center;font-family:var(--display);font-size:.85rem;color:#5a4f5c;margin-top:.75rem">On Track PITA Assessment: what &ldquo;on track&rdquo; looks like across reading, writing and maths</p>
     </div>
-    <div class="reveal" style="margin-top:2rem">
-      <img src="Assessment%20in%20Nova%20Primaries.png" alt="Assessment in Nova Primaries infographic" style="max-width:100%;border-radius:12px;box-shadow:var(--shadow);display:block;margin:0 auto">
-      <p style="text-align:center;font-family:var(--display);font-size:.85rem;color:#5a4f5c;margin-top:.75rem">Assessment in Nova Primaries: key principles and approaches</p>
+    <div class="reveal" style="margin-top:2rem;text-align:center">
+      <figure style="margin:0;display:inline-block">
+        <div class="thumb-wrap" onclick="lbOpen('Assessment%20in%20Nova%20Primaries.png','Assessment in Nova Primaries')">
+          <img src="Assessment%20in%20Nova%20Primaries.png" alt="Assessment in Nova Primaries infographic">
+        </div>
+        <p class="thumb-hint">Assessment in Nova Primaries: key principles and approaches</p>
+        <p class="thumb-hint">Click to enlarge</p>
+      </figure>
     </div>
   </div>
 </section>
@@ -107,6 +122,15 @@
     <p class="copy">Nova Education Trust &bull; Primary Playbook 2026 &bull; The Sir Colin Campbell Building, University of Nottingham Innovation Park, Triumph Road, Nottingham NG7 2TU &bull; 0115 807 7777 &bull; contact@novaeducationtrust.net</p>
   </div>
 </footer>
+<div id="lb-overlay" onclick="if(event.target===this)lbClose()">
+  <button id="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
 <script src="app.js"></script>
+<script>
+function lbOpen(src,alt){var o=document.getElementById('lb-overlay');document.getElementById('lb-img').src=src;document.getElementById('lb-img').alt=alt||'';o.classList.add('open');document.body.style.overflow='hidden';}
+function lbClose(){document.getElementById('lb-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lbClose();});
+</script>
 </body>
 </html>
