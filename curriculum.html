@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Curriculum — Nova Primary Playbook 2026</title>
 <link rel="stylesheet" href="style.css">
+<style>
+#lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9000;align-items:center;justify-content:center;padding:1rem}
+#lb-overlay.open{display:flex}
+#lb-overlay img{max-width:95vw;max-height:92vh;border-radius:10px;object-fit:contain;cursor:default}
+#lb-close{position:absolute;top:.75rem;right:1.25rem;background:none;border:none;color:#fff;font-size:2.5rem;line-height:1;cursor:pointer;padding:0;font-family:sans-serif}
+.thumb-wrap{cursor:zoom-in;text-align:center}
+.thumb-wrap img{max-width:300px;width:100%;border-radius:10px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s}
+.thumb-wrap:hover img{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.18)}
+.thumb-hint{font-family:var(--display);font-size:.78rem;color:#888;margin-top:.4rem;text-align:center}
+</style>
 </head>
 <body>
 <header class="nav">
@@ -50,6 +60,34 @@
   </div>
 </section>
 
+<section class="band">
+  <div class="wrap">
+    <div class="reveal"><div class="eyebrow">Quick reference</div>
+    <h2 class="section-title">Classroom practice at a glance</h2>
+    <p class="lead">Click either image to enlarge.</p></div>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem" class="reveal">
+      <figure style="margin:0;flex:0 1 300px">
+        <div class="thumb-wrap" onclick="lbOpen('Digital%20Tools%20in%20Nova%20Classrooms.png','Digital tools in Nova classrooms')">
+          <img src="Digital%20Tools%20in%20Nova%20Classrooms.png" alt="Digital tools in Nova classrooms infographic">
+        </div>
+        <p class="thumb-hint">Digital tools in Nova classrooms</p>
+        <p class="thumb-hint">Click to enlarge</p>
+      </figure>
+      <figure style="margin:0;flex:0 1 300px">
+        <div class="thumb-wrap" onclick="lbOpen('Nova%20Common%20Mistakes%20in%20Teaching%20and%20Remedies.png','Common mistakes in teaching and their remedies')">
+          <img src="Nova%20Common%20Mistakes%20in%20Teaching%20and%20Remedies.png" alt="Common mistakes in teaching and their remedies infographic">
+        </div>
+        <p class="thumb-hint">Common mistakes in teaching and their remedies</p>
+        <p class="thumb-hint">Click to enlarge</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div id="lb-overlay" onclick="if(event.target===this)lbClose()">
+  <button id="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
 
 <footer>
   <div class="wrap">
@@ -61,5 +99,10 @@
   </div>
 </footer>
 <script src="app.js"></script>
+<script>
+function lbOpen(src,alt){var o=document.getElementById('lb-overlay');document.getElementById('lb-img').src=src;document.getElementById('lb-img').alt=alt||'';o.classList.add('open');document.body.style.overflow='hidden';}
+function lbClose(){document.getElementById('lb-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lbClose();});
+</script>
 </body>
 </html>
